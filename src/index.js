@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import { store } from 'Redux/store';
 
 const theme = {
   mainColor: '#042825',
@@ -9,13 +11,16 @@ const theme = {
   lightText: '#E6EDED',
   khakiGreen: '#0A433E',
   buttonColor: '#E5F7F7',
-  trans: '300ms cubic-bezier(.02,.26,1,.54)', 
-}
+  trans: '300ms cubic-bezier(.02,.26,1,.54)',
+};
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <Provider store={store}>
+          <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
