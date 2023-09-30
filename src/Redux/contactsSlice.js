@@ -4,7 +4,6 @@ const { Notify } = require('notiflix');
 
 let initContacts = [];
 const storedContacts = localStorage.getItem('contacts');
-console.log(storedContacts);
 if (storedContacts) {
   const savedContacts = JSON.parse(storedContacts);
   initContacts = savedContacts;
@@ -47,6 +46,5 @@ const contactsSlice = createSlice({
     },
   },
 });
-console.log(contactsSlice);
 export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
